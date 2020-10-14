@@ -29,7 +29,7 @@ SECRET_KEY = '=)arc^%upb&v2d6=%)!wm98b0x8%@=%vp_tvzxusbt3n-i0@kk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'warm-oasis-11131.herokuapp.com']
 
 
 # Application definition
