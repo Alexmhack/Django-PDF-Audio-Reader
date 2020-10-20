@@ -5,9 +5,9 @@ Django==3.1.2
 gunicorn==20.0.4
 psycopg2-binary==2.8.6
 PyPDF2==1.26.0
-pypiwin32==223
+# pypiwin32==223
 pyttsx3==2.90
 pytz==2020.1
-pywin32==228
+# pywin32==228
 sqlparse==0.4.1
 whitenoise==5.2.0
