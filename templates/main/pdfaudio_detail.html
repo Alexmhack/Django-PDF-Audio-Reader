@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+  PDF To Audio Details
+{% endblock title %}
+
+{% block head %}
+
+<style>
+  textarea {
+    overflow-y: scroll !important;
+    height: 100px;
+    resize: none
+  }
+</style>
+
+{% endblock head %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="md-form mb-4">
+        <textarea id="form7" class="md-textarea form-control" rows="10">{{ object.text }}</textarea>
+        <label for="form7">PDF To Text</label>
+      </div>
+      <div>
+        <audio src="{{ object.audio_file.url }}" controls="controls"></audio>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

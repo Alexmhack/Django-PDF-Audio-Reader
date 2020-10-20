@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+  PDF To Audio File Converter
+{% endblock title %}
+
+{% block head %}
+
+{% endblock head %}
+
+{% block content %}
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form action="." method="post" enctype="multipart/form-data" class="mt-5">
+          {% csrf_token %}
+          {{ form.errors }}
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="id_pdf">Upload</span>
+              {% if form.file.errors %}
+                <div class="text-danger">
+                  {% for error in form.file.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="custom-file">
+              <input name="pdf" type="file" class="custom-file-input" id="id_pdf"
+                aria-describedby="id_pdf" accept="application/pdf">
+              <label class="custom-file-label" for="id_pdf">Choose PDF</label>
+            </div>
+          </div>
+          {% if form.pdf.errors %}
+            <div class="text-danger">
+              {% for error in form.pdf.errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="md-form">
+            <input value="{{ form.audio_rate.value }}" name="audio_rate" type="text" id="id_audio_rate" class="form-control">
+            <label for="id_audio_rate">Audio Rate (Optional)</label>
+            {% if form.audio_rate.errors %}
+              <div class="text-danger">
+                {% for error in form.audio_rate.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <div class="md-form">
+            <input value="{{ form.volume_level.value }}" name="volume_level" type="text" id="id_volume_level" class="form-control">
+            <label for="id_volume_level">Volume Level (Optional)</label>
+            {% if form.audio_rate.errors %}
+              <div class="text-danger">
+                {% for error in form.audio_rate.errors %}
+                  <p>{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+          <select value="{{ form.audio_voice.value }}" name="audio_voice" id="id_audio_voice" class="browser-default custom-select">
+            <option selected="" value="0">Male</option>
+            <option value="1">Female</option>
+          </select>
+          <div class="mt-3">
+            <button class="btn btn-success">Convert to Audio File</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+{% block scripts %}
+
+<script src="{% static 'js/scripts/main.js' %}" type="text/javascript"></script>
+
+{% endblock scripts %}
