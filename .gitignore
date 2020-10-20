@@ -130,3 +130,6 @@ dmypy.json
 
 # django staticfiles
 static/
+
+# media folder
+media/
